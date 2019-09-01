@@ -78,10 +78,14 @@ sans-serif;
     justify-content: space-between;
 
     .nav__title {
-        font-family: $font-logo;
-        font-size: 25px;
-        font-style: italic;
-        color: $color-one;
+        text-decoration: none;
+
+        p {
+            font-family: $font-logo;
+            font-size: 30px;
+            font-style: italic;
+            color: $color-one;
+        }
     }
 }
 
@@ -103,6 +107,10 @@ sans-serif;
     }
 
     .nav__item:hover {
+        .nav__link {
+            color: $color-one;
+        }
+
         .nav__link::after {
             content: " ";
             position: absolute;
@@ -159,6 +167,10 @@ sans-serif;
         color: $color-one;
         cursor: pointer;
     }
+}
+
+.hamburger {
+    display: none;
 }
 
 /*Services*/
@@ -321,6 +333,7 @@ sans-serif;
 
 .footer__elements:hover {
     transform: scale(1.2);
+    background-color: $color-one;
 }
 
 /*Media*/
@@ -337,17 +350,22 @@ sans-serif;
     .nav__header {
         height: 100vh;
         width: 40vw;
-        position: absolute;
+        position: fixed;
         left: -100%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         background-color: $color-four;
         z-index: 99;
+        transition: .5s;
 
         .nav__title {
             text-align: center;
         }
+    }
+
+    .nav__header--active {
+        left: 0;
     }
 
     .nav__menu {
@@ -379,6 +397,25 @@ sans-serif;
             margin-top: 50px;
             padding: 10px 30px;
             font-size: 16px;
+        }
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 10vh;
+        right: 10vw;
+
+        .fas {
+            color: $color-one;
+            font-size: 25px;
+            transition: .4s;
+        }
+    }
+
+    .hamburger--active {
+        .fas {
+            transform: rotate(270deg);
         }
     }
 
